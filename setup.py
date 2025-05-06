@@ -1,11 +1,14 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 setup(
     name="lib-version",
-    url="https://github.com/remla2025-team19/lib-version",
     version="0.1.0",
-    packages=["lib_version"],
-    package_dir={"": "lib_version"},
+    author="Team 19",
+    description="A lightweight utility library that provides version information for your application components.",
+    url="https://github.com/remla2025-team19/lib-version",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    install_requires=[],
     python_requires="==3.12.9",
 )

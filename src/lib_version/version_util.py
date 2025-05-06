@@ -1,5 +1,6 @@
 import importlib.metadata
 
+
 class VersionUtil:
     @staticmethod
     def get_version():
@@ -7,4 +8,3 @@ class VersionUtil:
             return importlib.metadata.version("lib-version")
         except importlib.metadata.PackageNotFoundError:
             return "unknown"
-
