@@ -1,9 +1,8 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="lib-version",
     version="0.1.0",
-    packages=find_packages(where="versionutil"),
-    package_dir={"": "versionutil"},
+    packages=["lib_version"],
     python_requires="==3.12.9",
 )
