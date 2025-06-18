@@ -29,10 +29,17 @@ jobs:
           sed -i 's/__version__ = ".*"/__version__ = "${{ steps.version.outputs.version }}"/' src/lib_version/__init__.py
           echo "Updated __init__.py with version ${{ steps.version.outputs.version }}"
 
+      - name: Update setup.py version
+        run: |
+          sed -i 's/version=".*"/version="${{ steps.version.outputs.version }}"/' setup.py
+          echo "Updated setup.py with version ${{ steps.version.outputs.version }}"
+
       - name: Verify changes
         run: |
           echo "Current __init__.py content:"
           cat src/lib_version/__init__.py
+          echo "Current setup.py content:"
+          cat setup.py
 
       - name: Commit and push changes
         run: |
@@ -41,7 +48,7 @@ jobs:
           
           # Check if there are changes to commit
           if [[ -n "$(git diff --exit-code)" ]]; then
-            git add src/lib_version/__init__.py
+            git add src/lib_version/__init__.py setup.py
             git commit -m "Auto-update version to ${{ steps.version.outputs.version }} from model-service"
             git push
             echo "Changes committed and pushed"
