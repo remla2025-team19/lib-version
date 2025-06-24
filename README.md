@@ -13,5 +13,5 @@ A lightweight utility library that provides version information for your applica
 To install from GitHub using a version tag:
 
 ```bash
-pip install git+https://github.com/remla25-team19/lib-version.git@v0.1.1
+pip install git+https://github.com/remla2025-team19/lib-version.git
 
